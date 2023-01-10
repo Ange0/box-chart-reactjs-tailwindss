@@ -52,21 +52,58 @@ function App() {
 
         {/* content  box chat */}
         <div className='overflow-y-auto rounded-tl-2xl rounded-tr-2xl'>
-            <div className='h-14 bg-blackmb-2'></div>
+            <div className='h-20 bg-blackmb-2'></div>
+          {/* items users */}
             <div className='flex flex-col divide-y divide-stone-700'>
-              <div className='flex  p-2 space-x-4'>
-                <img className='h-12 w-12 rounded-full' src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
-                <div className='flex text-'>
-                    <div className='flex flex-col'>
-                      <div className='flex items-center space-x-1'>
-                        <span className='text-[#e7e9ea] font-bold'>Gabeta Soro</span>
-                        <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" class="h-4"></img>
+                <div className='flex  p-4 space-x-4 hover:bg-[#16181c] cursor-pointer transition'>
+                  <img className='h-12 w-12 rounded-full' src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
+                  <div className='flex text-[#71767b]  justify-between flex-grow'>
+                      <div className='flex flex-col'>
+                          <div className='flex space-x-1'>
+                            <div className='flex items-center space-x-1'>
+                                <span className='text-[#e7e9ea] font-bold truncate max-w-[80px]'>Patty</span>  
+                                <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" class="h-4 w-4"></img>
+                            </div>
+                            <span className='font-bold truncate text-sm max-w-[100px]'>@Patty</span>
+                            <span>. Jan 6</span>
+                          </div>
+                          <span className='text-sm font-semibold'>Your sent a GIF</span>
                       </div>
-                      <span></span>
-                    </div>
+                     <div className='relative'>
+                        <button className='hover:bg-[#1d9bf0]/20 hover:text-[#1d9bf0] rounded-full p-2 absolute right-0 -top-1'>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className="w-4 h-4">
+                                <g><path d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"></path></g>
+                            </svg>
+                        </button>
+                     </div>
+                  </div>
                 </div>
-              </div>
+
+                <div className='flex  p-4 space-x-4 hover:bg-[#16181c] cursor-pointer transition'>
+                  <img className='h-12 w-12 rounded-full' src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" />
+                  <div className='flex text-[#71767b]  justify-between flex-grow'>
+                      <div className='flex flex-col'>
+                          <div className='flex space-x-1'>
+                            <div className='flex items-center space-x-1'>
+                                <span className='text-[#e7e9ea] font-bold truncate max-w-[80px]'>Patty</span>  
+                                <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" class="h-4 w-4"></img>
+                            </div>
+                            <span className='font-bold truncate text-sm max-w-[100px]'>@Patty</span>
+                            <span>. Jan 6</span>
+                          </div>
+                          <span className='text-sm font-semibold'>Your sent a GIF</span>
+                      </div>
+                     <div className='relative'>
+                        <button className='hover:bg-[#1d9bf0]/20 hover:text-[#1d9bf0] rounded-full p-2 absolute right-0 -top-1'>
+                            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className="w-4 h-4">
+                                <g><path d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"></path></g>
+                            </svg>
+                        </button>
+                     </div>
+                  </div>
+                </div>
             </div>
+          {/* items users  */}
         </div>
         {/* content box chat  */}
 
