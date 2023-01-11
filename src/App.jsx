@@ -32,7 +32,7 @@ function App() {
         </div>
       </div>
       {/* box chat */}
-      <div className='flex flex-col flex-none bg-black fixed bottom-0 right-0 w-[400px] h-[60vh] z-20 mr-6  transition-all duration-200 rounded-tl-2xl rounded-tr-2xl  shadow-[0px_0px_15px_rgba(255,255,255,0.2),_0px_0px_3px_1px_rgba(255,255,255,0.15)]'>
+      <div className='hidden lg:flex flex-col  flex-none bg-black fixed bottom-0 right-0 w-[400px] h-[60vh] z-20 mr-6  transition-all duration-200 rounded-tl-2xl rounded-tr-2xl  shadow-[0px_0px_15px_rgba(255,255,255,0.2),_0px_0px_3px_1px_rgba(255,255,255,0.15)]'>
         {/* header box chat */}
         <div className='flex justify-between text-white p-4 bg-gray-900/10 backdrop-blur-2xl rounded-tl-2xl rounded-tr-2xl fixed w-[400px]'>
           <div className='font-bold text-xl'>Messages</div>
