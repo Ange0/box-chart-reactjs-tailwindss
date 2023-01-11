@@ -122,6 +122,7 @@ function App() {
 
       </div>
       {/* box chat */}
+      
     </div>
   );
 }
