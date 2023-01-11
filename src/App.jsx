@@ -4,8 +4,12 @@ import './App.css';
 // gray color = #71767b
 // white color = #e7e9ea
 // red color = #f2202d
+import Modal from './components/Modal';
+import useModal from './hooks/useModal';
 
 function App() {
+  const {isShowing, toggle} = useModal(true)
+
   return (
     <div className='bg-black'>
       <div className='mx-auto bg-red-200 w-[60%] h-full'>
@@ -37,7 +41,7 @@ function App() {
         <div className='flex justify-between text-white p-4 bg-gray-900/10 backdrop-blur-2xl rounded-tl-2xl rounded-tr-2xl fixed w-[400px]'>
           <div className='font-bold text-xl'>Messages</div>
           <div className='flex space-x-2'>
-              <button className='hover:bg-[#fff]/20 h-9 w-9 p-2 rounded-full transition duration-500'>
+              <button onClick={toggle} className='hover:bg-[#fff]/20 h-9 w-9 p-2 rounded-full transition duration-500'>
                 <svg viewBox="0 0 24 24" aria-hidden="true"  fill="currentColor" className="w-full h-full">
                   <g><path d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5V12h-2v-1.537l-8 3.635-8-3.635V18.5c0 .276.224.5.5.5H13v2H4.498c-1.381 0-2.5-1.119-2.5-2.5v-13zm2 2.766l8 3.635 8-3.635V5.5c0-.276-.224-.5-.5-.5h-15c-.276 0-.5.224-.5.5v2.766zM19 18v-3h2v3h3v2h-3v3h-2v-3h-3v-2h3z"></path></g>
                 </svg>
@@ -66,7 +70,7 @@ function App() {
                               <div className='flex space-x-1'>
                                 <div className='flex items-center space-x-1'>
                                     <span className='text-[#e7e9ea] font-bold truncate max-w-[80px]'>Patty</span>  
-                                    <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" class="h-4 w-4"></img>
+                                    <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" className="h-4 w-4"></img>
                                 </div>
                                 <span className='font-bold truncate text-sm max-w-[100px]'>@Patty</span>
                                 <span>. Jan 6</span>
@@ -84,7 +88,7 @@ function App() {
                       {/* dialogue contextual */}
                       <div className='absolute top-4 right-[13.5rem] bg-red-200'>
                         {/* // h-0 for hide menu textextual */}
-                          <div className='bg-black font-bold text-sm flex flex-col divide-y divide-stone-700 fixed  text-white shadow-[0px_0px_15px_rgba(255,255,255,0.2),_0px_0px_3px_1px_rgba(255,255,255,0.15)] rounded-xl min-w-[200px] overflow-auto h-fit  transition-all duration-[800ms]'>
+                          <div className='bg-black  z-[200] font-bold text-sm flex flex-col divide-y divide-stone-700 fixed  text-white shadow-[0px_0px_15px_rgba(255,255,255,0.2),_0px_0px_3px_1px_rgba(255,255,255,0.15)] rounded-xl min-w-[200px] overflow-auto h-fit  transition-all duration-[800ms]'>
                               <div className='flex space-x-2 items-center p-3'>
                                   <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className="w-4 h-4 flex-none">
                                       <g><path d="M17 9.76V4.5C17 3.12 15.88 2 14.5 2h-5C8.12 2 7 3.12 7 4.5v5.26L3.88 16H11v5l1 2 1-2v-5h7.12L17 9.76zM7.12 14L9 10.24V4.5c0-.28.22-.5.5-.5h5c.28 0 .5.22.5.5v5.74L16.88 14H7.12z"></path></g>
@@ -119,10 +123,10 @@ function App() {
           {/* items users  */}
         </div>
         {/* content box chat  */}
-
+        <Modal isShowing={isShowing} toggle={toggle} />
       </div>
       {/* box chat */}
-      
+
     </div>
   );
 }
