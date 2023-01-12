@@ -2,6 +2,7 @@ import Modal from './Modal';
 import useModal from './../hooks/useModal';
 import { useState } from 'react';
 import LoadingBar from './../components/LoadingBar'
+import TagButton from './TagButton';
 
 function ChatBox() {
   const {isShowing, toggle} = useModal(true)
@@ -20,9 +21,17 @@ function ChatBox() {
                         </svg>
                     </button>
                     <button onClick={() => setIsUp(!isUp)} className='hover:bg-[#fff]/20 h-9 w-9 p-2 rounded-full transition duration-500'>
-                        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className="w-full h-full">
-                            <g><path d="M12 11.59L3.96 3.54 2.54 4.96 12 14.41l9.46-9.45-1.42-1.42L12 11.59zm0 7l-8.04-8.05-1.42 1.42L12 21.41l9.46-9.45-1.42-1.42L12 18.59z"></path></g>
-                        </svg>
+                        {
+                          isUp 
+                            ?
+                            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className="w-full h-full">
+                                <g><path d="M12 11.59L3.96 3.54 2.54 4.96 12 14.41l9.46-9.45-1.42-1.42L12 11.59zm0 7l-8.04-8.05-1.42 1.42L12 21.41l9.46-9.45-1.42-1.42L12 18.59z"></path></g>
+                            </svg>
+                          :
+                            <svg viewBox="0 0 24 24"  aria-hidden="true" fill="currentColor" className="w-full h-full">
+                                <g><path d="M12 2.59l9.46 9.45-1.42 1.42L12 5.41l-8.04 8.05-1.42-1.42L12 2.59zm0 7l9.46 9.45-1.42 1.42L12 12.41l-8.04 8.05-1.42-1.42L12 9.59z"></path></g>
+                            </svg>
+                        }
                     </button>
                 </div>
                 </div>
@@ -96,165 +105,85 @@ function ChatBox() {
                 {/* items users  */}
                 </div>
                 {/* content box chat  */}
-                <Modal isShowing={isShowing} toggle={toggle}>
-                    <div className='flex flex-col divide-y divide-twitter-quaternary/40 overflow-hidden'>
-                        {/* search people */}
-                        <div className='flex flex-col space-y-2 relative'>
-                            <div className='flex  space-x-4 p-4 items-center '>
-                                <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className='text-twitter-quaternary h-5 w-5'>
-                                    <g><path d="M10.25 3.75c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c1.795 0 3.419-.726 4.596-1.904 1.178-1.177 1.904-2.801 1.904-4.596 0-3.59-2.91-6.5-6.5-6.5zm-8.5 6.5c0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5c0 1.986-.682 3.815-1.824 5.262l4.781 4.781-1.414 1.414-4.781-4.781c-1.447 1.142-3.276 1.824-5.262 1.824-4.694 0-8.5-3.806-8.5-8.5z"></path></g>
-                                </svg>
-                                <input className='text-twitter-quaternary w-full bg-twitter-primary focus:outline-none text-sm placeholder-twitter-quaternary' placeholder='Search people' />
-                            </div>
-                            <div className='flex p-2 space-x-4 w-full overflow-x-auto'>
-                                {/* tag button */}
-                                <span className='flex flex-none justify-between border border-twitter-quaternary/40 rounded-full pl-1  pr-2 py-1 items-center cursor-pointer hover:bg-twitter-tertiary/5'>
-                                    <span className='flex space-x-2 items-center'>
-                                        <img className='h-6 w-6 rounded-full' src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
-                                        <div className='flex items-center space-x-1'>
-                                            <span className='text-[#e7e9ea] font-bold truncate max-w-[80px]'>Patty</span>  
-                                            <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" className="h-4 w-4"></img>
-                                        </div>
-                                    </span>
-                                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className='h-5 w-5 ml-2 text-twitter-tertiary'>
-                                        <g><path d="M10.59 12L4.54 5.96l1.42-1.42L12 10.59l6.04-6.05 1.42 1.42L13.41 12l6.05 6.04-1.42 1.42L12 13.41l-6.04 6.05-1.42-1.42L10.59 12z"></path></g>
-                                    </svg>
-                                </span>
-                                {/* tag button */}
-                                {/* tag button */}
-                                <span className='flex flex-none justify-between border border-twitter-quaternary/40 rounded-full pl-1  pr-2 py-1 items-center cursor-pointer hover:bg-twitter-tertiary/5'>
-                                    <span className='flex space-x-2 items-center'>
-                                        <img className='h-6 w-6 rounded-full' src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
-                                        <div className='flex items-center space-x-1'>
-                                            <span className='text-[#e7e9ea] font-bold truncate max-w-[80px]'>Patty</span>  
-                                            <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" className="h-4 w-4"></img>
-                                        </div>
-                                    </span>
-                                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className='h-5 w-5 ml-2 text-twitter-tertiary'>
-                                        <g><path d="M10.59 12L4.54 5.96l1.42-1.42L12 10.59l6.04-6.05 1.42 1.42L13.41 12l6.05 6.04-1.42 1.42L12 13.41l-6.04 6.05-1.42-1.42L10.59 12z"></path></g>
-                                    </svg>
-                                </span>
-                                {/* tag button */}
-                                {/* tag button */}
-                                <span className='flex flex-none justify-between border border-twitter-quaternary/40 rounded-full pl-1  pr-2 py-1 items-center cursor-pointer hover:bg-twitter-tertiary/5'>
-                                    <span className='flex space-x-2 items-center'>
-                                        <img className='h-6 w-6 rounded-full' src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
-                                        <div className='flex items-center space-x-1'>
-                                            <span className='text-[#e7e9ea] font-bold truncate max-w-[80px]'>Patty</span>  
-                                            <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" className="h-4 w-4"></img>
-                                        </div>
-                                    </span>
-                                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className='h-5 w-5 ml-2 text-twitter-tertiary'>
-                                        <g><path d="M10.59 12L4.54 5.96l1.42-1.42L12 10.59l6.04-6.05 1.42 1.42L13.41 12l6.05 6.04-1.42 1.42L12 13.41l-6.04 6.05-1.42-1.42L10.59 12z"></path></g>
-                                    </svg>
-                                </span>
-                                {/* tag button */}
-                                {/* tag button */}
-                                <span className='flex flex-none justify-between border border-twitter-quaternary/40 rounded-full pl-1  pr-2 py-1 items-center cursor-pointer hover:bg-twitter-tertiary/5'>
-                                    <span className='flex space-x-2 items-center'>
-                                        <img className='h-6 w-6 rounded-full' src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
-                                        <div className='flex items-center space-x-1'>
-                                            <span className='text-[#e7e9ea] font-bold truncate max-w-[80px]'>Patty</span>  
-                                            <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" className="h-4 w-4"></img>
-                                        </div>
-                                    </span>
-                                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className='h-5 w-5 ml-2 text-twitter-tertiary'>
-                                        <g><path d="M10.59 12L4.54 5.96l1.42-1.42L12 10.59l6.04-6.05 1.42 1.42L13.41 12l6.05 6.04-1.42 1.42L12 13.41l-6.04 6.05-1.42-1.42L10.59 12z"></path></g>
-                                    </svg>
-                                </span>
-                                {/* tag button */}
-                                {/* tag button */}
-                                <span className='flex flex-none justify-between border border-twitter-quaternary/40 rounded-full pl-1  pr-2 py-1 items-center cursor-pointer hover:bg-twitter-tertiary/5'>
-                                    <span className='flex space-x-2 items-center'>
-                                        <img className='h-6 w-6 rounded-full' src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
-                                        <div className='flex items-center space-x-1'>
-                                            <span className='text-[#e7e9ea] font-bold truncate max-w-[80px]'>Patty</span>  
-                                            <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" className="h-4 w-4"></img>
-                                        </div>
-                                    </span>
-                                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className='h-5 w-5 ml-2 text-twitter-tertiary'>
-                                        <g><path d="M10.59 12L4.54 5.96l1.42-1.42L12 10.59l6.04-6.05 1.42 1.42L13.41 12l6.05 6.04-1.42 1.42L12 13.41l-6.04 6.05-1.42-1.42L10.59 12z"></path></g>
-                                    </svg>
-                                </span>
-                                {/* tag button */}
-                                {/* tag button */}
-                                <span className='flex flex-none justify-between border border-twitter-quaternary/40 rounded-full pl-1  pr-2 py-1 items-center cursor-pointer hover:bg-twitter-tertiary/5'>
-                                    <span className='flex space-x-2 items-center'>
-                                        <img className='h-6 w-6 rounded-full' src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
-                                        <div className='flex items-center space-x-1'>
-                                            <span className='text-[#e7e9ea] font-bold truncate max-w-[80px]'>Patty</span>  
-                                            <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" className="h-4 w-4"></img>
-                                        </div>
-                                    </span>
-                                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className='h-5 w-5 ml-2 text-twitter-tertiary'>
-                                        <g><path d="M10.59 12L4.54 5.96l1.42-1.42L12 10.59l6.04-6.05 1.42 1.42L13.41 12l6.05 6.04-1.42 1.42L12 13.41l-6.04 6.05-1.42-1.42L10.59 12z"></path></g>
-                                    </svg>
-                                </span>
-                                {/* tag button */}
-                                {/* tag button */}
-                                <span className='flex flex-none justify-between border border-twitter-quaternary/40 rounded-full pl-1  pr-2 py-1 items-center cursor-pointer hover:bg-twitter-tertiary/5'>
-                                    <span className='flex space-x-2 items-center'>
-                                        <img className='h-6 w-6 rounded-full' src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
-                                        <div className='flex items-center space-x-1'>
-                                            <span className='text-[#e7e9ea] font-bold truncate max-w-[80px]'>Patty</span>  
-                                            <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" className="h-4 w-4"></img>
-                                        </div>
-                                    </span>
-                                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className='h-5 w-5 ml-2 text-twitter-tertiary'>
-                                        <g><path d="M10.59 12L4.54 5.96l1.42-1.42L12 10.59l6.04-6.05 1.42 1.42L13.41 12l6.05 6.04-1.42 1.42L12 13.41l-6.04 6.05-1.42-1.42L10.59 12z"></path></g>
-                                    </svg>
-                                </span>
-                                {/* tag button */}
-                               
-                            </div>
-                             <LoadingBar />
-                        </div>
-                        
-                        {/* search people */}
-
-                        {/* create group */}
-                        <div className='flex items-center space-x-4 p-4 text-twitter-tertiary hover:bg-twitter-quaternary/10 cursor-pointer'>
-                            <button className='p-2 h-10 w-10 border border-twitter-quaternary  rounded-full'>
-                                <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className='h-full w-full'>
-                                    <g><path d="M12 5c-.83 0-1.5.67-1.5 1.5S11.17 8 12 8s1.5-.67 1.5-1.5S12.83 5 12 5zM8.5 6.5C8.5 4.57 10.07 3 12 3s3.5 1.57 3.5 3.5S13.93 10 12 10 8.5 8.43 8.5 6.5zm-3.25 1c-.41 0-.75.34-.75.75s.34.75.75.75.75-.34.75-.75-.34-.75-.75-.75zm-2.75.75c0-1.52 1.23-2.75 2.75-2.75S8 6.73 8 8.25 6.77 11 5.25 11 2.5 9.77 2.5 8.25zm16.25-.75c-.41 0-.75.34-.75.75s.34.75.75.75.75-.34.75-.75-.34-.75-.75-.75zM16 8.25c0-1.52 1.23-2.75 2.75-2.75s2.75 1.23 2.75 2.75S20.27 11 18.75 11 16 9.77 16 8.25zM12 13c-1.29 0-2.37.54-3.22 1.61C8 15.6 7.4 17.07 7.12 19h9.76c-.27-1.85-.83-3.28-1.57-4.28C14.45 13.58 13.34 13 12 13zm-4.78.36C8.41 11.86 10.06 11 12 11c2.02 0 3.7.92 4.91 2.53 1.18 1.57 1.88 3.77 2.09 6.39l.08 1.08H4.92L5 19.92c.22-2.7.96-4.97 2.22-6.56zM2.95 16c.16-.55.39-.97.66-1.28.4-.46.94-.72 1.64-.72v-2c-1.26 0-2.35.49-3.15 1.4-.78.89-1.22 2.11-1.35 3.51L.65 18H4v-2H2.95zm18.95-2.6c.78.89 1.22 2.11 1.35 3.51l.1 1.09H20v-2h1.05c-.16-.55-.39-.97-.66-1.28-.4-.46-.94-.72-1.64-.72v-2c1.26 0 2.35.49 3.15 1.4z"></path></g>
-                                </svg>
+                <Modal 
+                    isShowing={isShowing} 
+                    toggle={toggle}
+                    header={
+                       <div className='flex justify-between'>
+                            <div className='text-xl font-bold'>New message</div>
+                            <button className='bg-twitter-quaternary text-twitter-primary py-2 px-5 font-bold text-sm rounded-3xl'>
+                                Next
                             </button>
-                            <span className='font-bold'>Create a group</span>
-                        </div>
-                        {/* create group */}
-
-                        {/*  peoples */}
-                        <div className='flex flex-col space-y-2'>
-                            <div className='hover:bg-twitter-quaternary/10 p-4'>
-                                <div className='flex space-x-4 text-twitter-quaternary ml-4 mb-2'>
-                                    <svg viewBox="0 0 24 24" aria-hidden="true" fill='currentColor' className='h-4 w-4'>
-                                        <g><path d="M17.863 13.44c1.477 1.58 2.366 3.8 2.632 6.46l.11 1.1H3.395l.11-1.1c.266-2.66 1.155-4.88 2.632-6.46C7.627 11.85 9.648 11 12 11s4.373.85 5.863 2.44zM12 2C9.791 2 8 3.79 8 6s1.791 4 4 4 4-1.79 4-4-1.791-4-4-4z"></path></g>
+                       </div>
+                    }
+                    body={
+                        <div className='flex flex-col divide-y divide-twitter-quaternary/40 overflow-hidden'>
+                            {/* search people */}
+                            <div className='flex flex-col space-y-2 relative'>
+                                <div className='flex  space-x-4 p-4 items-center '>
+                                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className='text-twitter-quaternary h-5 w-5'>
+                                        <g><path d="M10.25 3.75c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c1.795 0 3.419-.726 4.596-1.904 1.178-1.177 1.904-2.801 1.904-4.596 0-3.59-2.91-6.5-6.5-6.5zm-8.5 6.5c0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5c0 1.986-.682 3.815-1.824 5.262l4.781 4.781-1.414 1.414-4.781-4.781c-1.447 1.142-3.276 1.824-5.262 1.824-4.694 0-8.5-3.806-8.5-8.5z"></path></g>
                                     </svg>
-                                    <span className='text-xs font-bold'>You follow each other</span>
+                                    <input className='text-twitter-quaternary w-full bg-twitter-primary focus:outline-none text-sm placeholder-twitter-quaternary' placeholder='Search people' />
                                 </div>
-                                <div className='flex justify-between cursor-pointer items-center'>
-                                    <div className='flex space-x-4 '>
-                                        <img className='h-12 w-12 rounded-full' src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
-                                        <div className='flex text-twitter-quaternary  justify-between flex-grow'>
-                                            <div className='flex flex-col'>
-                                                <div className='flex items-center space-x-1'>
-                                                    <span className='text-[#e7e9ea] font-bold truncate max-w-[80px]'>Patty</span>  
-                                                    <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" className="h-4 w-4"></img>
+                                <div className='flex p-2 space-x-4 w-full overflow-x-auto'>
+                                    {/* tag button */}
+                                    <TagButton />
+                                    {/* tag button */}
+                                
+                                </div>
+                                <LoadingBar />
+                            </div>
+                            
+                            {/* search people */}
+
+                            {/* create group */}
+                            <div className='flex items-center space-x-4 p-4 text-twitter-tertiary hover:bg-twitter-quaternary/10 cursor-pointer'>
+                                <button className='p-2 h-10 w-10 border border-twitter-quaternary  rounded-full'>
+                                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" className='h-full w-full'>
+                                        <g><path d="M12 5c-.83 0-1.5.67-1.5 1.5S11.17 8 12 8s1.5-.67 1.5-1.5S12.83 5 12 5zM8.5 6.5C8.5 4.57 10.07 3 12 3s3.5 1.57 3.5 3.5S13.93 10 12 10 8.5 8.43 8.5 6.5zm-3.25 1c-.41 0-.75.34-.75.75s.34.75.75.75.75-.34.75-.75-.34-.75-.75-.75zm-2.75.75c0-1.52 1.23-2.75 2.75-2.75S8 6.73 8 8.25 6.77 11 5.25 11 2.5 9.77 2.5 8.25zm16.25-.75c-.41 0-.75.34-.75.75s.34.75.75.75.75-.34.75-.75-.34-.75-.75-.75zM16 8.25c0-1.52 1.23-2.75 2.75-2.75s2.75 1.23 2.75 2.75S20.27 11 18.75 11 16 9.77 16 8.25zM12 13c-1.29 0-2.37.54-3.22 1.61C8 15.6 7.4 17.07 7.12 19h9.76c-.27-1.85-.83-3.28-1.57-4.28C14.45 13.58 13.34 13 12 13zm-4.78.36C8.41 11.86 10.06 11 12 11c2.02 0 3.7.92 4.91 2.53 1.18 1.57 1.88 3.77 2.09 6.39l.08 1.08H4.92L5 19.92c.22-2.7.96-4.97 2.22-6.56zM2.95 16c.16-.55.39-.97.66-1.28.4-.46.94-.72 1.64-.72v-2c-1.26 0-2.35.49-3.15 1.4-.78.89-1.22 2.11-1.35 3.51L.65 18H4v-2H2.95zm18.95-2.6c.78.89 1.22 2.11 1.35 3.51l.1 1.09H20v-2h1.05c-.16-.55-.39-.97-.66-1.28-.4-.46-.94-.72-1.64-.72v-2c1.26 0 2.35.49 3.15 1.4z"></path></g>
+                                    </svg>
+                                </button>
+                                <span className='font-bold'>Create a group</span>
+                            </div>
+                            {/* create group */}
+
+                            {/*  peoples */}
+                            <div className='flex flex-col space-y-2'>
+                                <div className='hover:bg-twitter-quaternary/10 p-4'>
+                                    <div className='flex space-x-4 text-twitter-quaternary ml-4 mb-2'>
+                                        <svg viewBox="0 0 24 24" aria-hidden="true" fill='currentColor' className='h-4 w-4'>
+                                            <g><path d="M17.863 13.44c1.477 1.58 2.366 3.8 2.632 6.46l.11 1.1H3.395l.11-1.1c.266-2.66 1.155-4.88 2.632-6.46C7.627 11.85 9.648 11 12 11s4.373.85 5.863 2.44zM12 2C9.791 2 8 3.79 8 6s1.791 4 4 4 4-1.79 4-4-1.791-4-4-4z"></path></g>
+                                        </svg>
+                                        <span className='text-xs font-bold'>You follow each other</span>
+                                    </div>
+                                    <div className='flex justify-between cursor-pointer items-center'>
+                                        <div className='flex space-x-4 '>
+                                            <img className='h-12 w-12 rounded-full' src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" />
+                                            <div className='flex text-twitter-quaternary  justify-between flex-grow'>
+                                                <div className='flex flex-col'>
+                                                    <div className='flex items-center space-x-1'>
+                                                        <span className='text-[#e7e9ea] font-bold truncate max-w-[80px]'>Patty</span>  
+                                                        <img alt="🧙" draggable="false" src="https://abs-0.twimg.com/emoji/v2/svg/1f9d9.svg" title="Mage" className="h-4 w-4"></img>
+                                                    </div>
+                                                    <span className='text-sm font-semibold'>@Patty</span>
                                                 </div>
-                                                <span className='text-sm font-semibold'>@Patty</span>
                                             </div>
                                         </div>
+                                        <svg viewBox="0 0 24 24" aria-hidden="true" fill='currentColor' className='h-5 w-5 text-twitter-tertiary' >
+                                            <g><path d="M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z"></path></g>
+                                    </svg>
                                     </div>
-                                    <svg viewBox="0 0 24 24" aria-hidden="true" fill='currentColor' className='h-5 w-5 text-twitter-tertiary' >
-                                        <g><path d="M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z"></path></g>
-                                   </svg>
                                 </div>
                             </div>
-                        </div>
-                        {/* peoples */}
+                            {/* peoples */}
 
-                    </div>
-                </Modal>
+                        </div>
+                    }
+                />
+                    
+                    
+              
             </div>
         </>
 
