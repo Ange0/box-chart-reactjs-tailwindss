@@ -1,8 +1,10 @@
 function LoadingBar() {
     return (
         <>
-            <div className='absolute -bottom-1 -left-6 w-full  h-1'>
-                <div className='w-2/12 h-full bg-twitter-tertiary animate-loading-bar'></div>
+            <div className='absolute -bottom-1 left-0 w-full  h-1 '>
+                <div className='w-full h-full relative'>
+                    <div className="absolute animate-loading-bar  bg-twitter-tertiary h-full w-2/12 "></div>
+                </div>
             </div>
         </>
     )

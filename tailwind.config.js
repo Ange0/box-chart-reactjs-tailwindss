@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     colors: {
       red: colors.red,
-      green: colors.red,
+      green: colors.green,
       'twitter': {
         primary: '#000000',
         secondary: '#FFFFFF',
@@ -23,13 +23,13 @@ module.exports = {
         'lg': '60rem'
       },
       animation: {
-        'loading-bar': 'loading-bar 2s linear infinite',
+        'loading-bar': 'loading-bar 3s linear infinite',
       },
       keyframes: {
         'loading-bar': {
-          '0%%': { transform: 'translate(-4rem)' },
-          '50%': { transform: 'translate(20rem)' },
-          '100%': { transform: 'translate(40rem)' },
+          '0%': { left: '0%' },
+          '50%': { left: '50%' },
+          '100%': { left: '100%' },
         }
       }
     },
